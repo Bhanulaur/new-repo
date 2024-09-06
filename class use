@@ -1,25 +1,25 @@
 class Account:
-    def __init__(self,bal,acc):
-        self.balance = bal
+    def __init__(self,acc,bal):
         self.account = acc
+        self.balance = bal
         
-    def credits(self, ammount):
-        self.balance += ammount
-        print("hi",ammount, "was credit")
-        print('total ammount' , self.get())
-        
-    def debits(self, ammount):
-        self.balance -= ammount
-        print("hi",ammount, "was debit")
-        print('total ammount' , self.get())
+    def credit(self,ammount):
+        self.balance +=ammount
+        print("amount" ,ammount, "was credit")
+        print("total balane" ,self.get_ammount())
     
-    def get(self):
+    def debit(self,ammount):
+        if ammount<=self.balance:
+         self.balance -=ammount
+         print("amount",ammount, "was debit")
+         print("total balane" ,self.get_ammount())
+        else:
+            print("insufficient fund" "\n Total ammount " , self.get_ammount())
+    
+    def get_ammount(self):
         return self.balance
-    
-acc1 = Account(1000,123)
-acc1.credits(100)
-acc1.debits(500)
-
-
-
-
+acc1= Account(234,1000)
+credit_ammount = float(input("entre the amout credit = "))
+acc1.credit(credit_ammount)
+debit_ammount = float(input("entre the amout debit = "))
+acc1.debit(debit_ammount)
