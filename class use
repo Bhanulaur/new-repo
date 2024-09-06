@@ -1,0 +1,25 @@
+class Account:
+    def __init__(self,bal,acc):
+        self.balance = bal
+        self.account = acc
+        
+    def credits(self, ammount):
+        self.balance += ammount
+        print("hi",ammount, "was credit")
+        print('total ammount' , self.get())
+        
+    def debits(self, ammount):
+        self.balance -= ammount
+        print("hi",ammount, "was debit")
+        print('total ammount' , self.get())
+    
+    def get(self):
+        return self.balance
+    
+acc1 = Account(1000,123)
+acc1.credits(100)
+acc1.debits(500)
+
+
+
+
