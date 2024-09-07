@@ -1,25 +1,43 @@
 class Account:
+
     def __init__(self,acc,bal):
-        self.account = acc
-        self.balance = bal
+     self.balance = bal
+     self.account = Account
         
     def credit(self,ammount):
-        self.balance +=ammount
-        print("amount" ,ammount, "was credit")
-        print("total balane" ,self.get_ammount())
-    
+     self.balance += ammount
+     print("your account balance" , ammount)
+     print("Total account balance" , self.total_ammount())
+        
     def debit(self,ammount):
-        if ammount<=self.balance:
-         self.balance -=ammount
-         print("amount",ammount, "was debit")
-         print("total balane" ,self.get_ammount())
-        else:
-            print("insufficient fund" "\n Total ammount " , self.get_ammount())
+     if ammount<=self.balance:
+      self.balance -=ammount
+      print("your account balance" ,ammount)
+      print("Total accounnt balance" , self.total_ammount())
+     else:
+      print("insucifficet fund")
+        
+    def total_ammount(self):
+     return self.balance
     
-    def get_ammount(self):
-        return self.balance
-acc1= Account(234,1000)
-credit_ammount = float(input("entre the amout credit = "))
-acc1.credit(credit_ammount)
-debit_ammount = float(input("entre the amout debit = "))
-acc1.debit(debit_ammount)
+acc1= Account(123,1000)
+
+while True:
+    # Ask user for their choice
+    z = int(input("Enter 1 to run the program or 2 to exit: "))
+    
+    if z == 1:
+        # If user selects to run the program, perform credit and debit operations
+        credit_amount = float(input("Enter your credit amount = "))
+        acc1.credit(credit_amount)
+        
+        debit_amount = float(input("Enter your debit amount = "))
+        acc1.debit(debit_amount)
+    
+    elif z == 2:
+        # If user selects to exit, break out of the loop
+        print("Exiting the program.")
+        break
+    
+    else:
+        print("Invalid input! Please enter 1 to run or 2 to exit.")
